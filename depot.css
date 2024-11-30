@@ -1,0 +1,149 @@
+/* Style général du corps */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-image: url('https://www.consilium.europa.eu/media/49142/collection.jpg'); /* Remplacez ici l'URL de votre image */
+    background-size: cover; /* L'image couvre toute la page */
+    background-position: center center; /* Centrer l'image */
+    background-attachment: fixed; /* L'image reste fixe lors du défilement */
+    overflow-y: auto; /* Permet le défilement vertical */
+    text-align: center;
+    padding-top: 100px; /* Espace pour le header fixé */
+}
+
+/* Style de l'en-tête */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Style du titre dans l'en-tête */
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: white; /* Texte blanc pour le titre */
+    text-transform: uppercase;
+}
+
+/* Conteneur pour le formulaire */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px; /* Ajustement pour que le formulaire soit plus bas */
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond sombre mais semi-transparent */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Titre du formulaire */
+.form-container h2 {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Champs de formulaire */
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+/* Focus sur les champs de formulaire */
+.form-container input:focus,
+.form-container select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 65, 54, 0.8);
+}
+
+/* Bouton de soumission */
+.form-container button {
+    padding: 15px 30px;
+    background-color: #FF4136;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+/* Hover sur le bouton */
+.form-container button:hover {
+    background-color: #C0392B;
+}
+
+/* Section pour afficher les rapports */
+.reports-section {
+    margin-top: 80px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond foncé mais transparent pour laisser apparaître le texte */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Style des rapports */
+.report {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #222;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Titre du rapport */
+.report h3 {
+    color: #FF4136;
+    margin: 0;
+}
+
+/* Contenu du rapport */
+.report p {
+    color: #ddd;
+}
+
+/* Liens dans les rapports */
+.report a {
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+/* Hover sur les liens */
+.report a:hover {
+    text-decoration: underline;
+}
+
+/* Sirène */
+.sirene-container {
+    display: none;
+}
+
+audio {
+    display: none;
+}

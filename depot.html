@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déposer un Rapport - LSPD | Slyper RP</title>
+    <link rel="stylesheet" href="depot.css"> <!-- Lien vers le fichier CSS externe -->
+</head>
+<body>
+
+    <!-- En-tête -->
+    <header>
+        <h1>LSPD - Slyper RP</h1>
+    </header>
+
+    <!-- Formulaire d'envoi de rapport -->
+    <div class="form-container">
+        <h2>Déposer un Rapport</h2>
+
+        <!-- Sélection de la catégorie (Organisation ou Fédérale) -->
+        <select id="categorySelect">
+            <option value="Organisation">Organisation</option>
+            <option value="Fédérale">Fédérale</option>
+        </select>
+
+        <!-- Champs pour le nom, prénom et matricule -->
+        <input type="text" id="fullName" placeholder="Nom et Prénom" />
+        <input type="text" id="matricule" placeholder="Matricule" />
+
+        <!-- Champ pour le lien GDocs -->
+        <input type="text" id="gdocsLink" placeholder="Entrez le lien GDocs" />
+
+        <!-- Bouton pour soumettre le rapport -->
+        <button onclick="submitReport()">Envoyer le Rapport</button>
+    </div>
+
+    <!-- Section pour afficher les rapports -->
+    <div class="reports-section" id="reportsSection">
+        <h2>Rapports Déposés</h2>
+        <!-- Les rapports seront affichés ici -->
+    </div>
+
+    <!-- Son de sirène -->
+    <div class="sirene-container">
+        <audio id="sirenSound" autoplay loop>
+            <source src="sirene.mp3" type="audio/mp3">
+            Votre navigateur ne prend pas en charge l'audio.
+        </audio>
+    </div>
+
+    <script>
+        // Fonction pour soumettre le rapport
+        function submitReport() {
+            const fullName = document.getElementById('fullName').value.trim();
+            const matricule = document.getElementById('matricule').value.trim();
+            const gdocsLink = document.getElementById('gdocsLink').value.trim();
+            const categorySelect = document.getElementById('categorySelect').value;
+
+            if (fullName === '' || matricule === '' || gdocsLink === '') {
+                alert('Veuillez remplir tous les champs.');
+                return;
+            }
+
+            // Créer un nouvel élément pour afficher le rapport
+            const reportSection = document.getElementById('reportsSection');
+
+            const newReport = document.createElement('div');
+            newReport.classList.add('report');
+
+            newReport.innerHTML = `
+                <h3>${categorySelect} - ${fullName} (${matricule})</h3>
+                <p><a href="${gdocsLink}" target="_blank">Voir le rapport Google Docs</a></p>
+            `;
+
+            // Ajouter le nouveau rapport à la section des rapports
+            reportSection.appendChild(newReport);
+
+            // Effacer les champs après soumission
+            document.getElementById('fullName').value = '';
+            document.getElementById('matricule').value = '';
+            document.getElementById('gdocsLink').value = '';
+
+            // Faire défiler la page vers le bas pour voir le nouveau rapport
+            reportSection.scrollTop = reportSection.scrollHeight;
+        }
+
+        // Activer le son de la sirène
+        window.onload = function() {
+            let siren = document.getElementById('sirenSound');
+            siren.volume = 0.5; // Réduire le volume de la sirène
+        };
+    </script>
+
+</body>
+</html>
